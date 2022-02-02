@@ -1,8 +1,34 @@
 {% extends 'base.html'  %}
 
-
-
-
 {% block content %}
-<h1>This is songs</h1>
+<div class="container">
+
+
+<h1 class="text-lg-center">This is songs</h1>
+<table class="table ">
+   <thead >
+       <th>SongID</th>
+       <th>Title</th>
+       <th>Artist</th>
+       <th>Genre</th>
+   </thead> 
+   <tbody>
+       {% for row in retrieveSongs %}
+       <tr>
+           <td>{{row["SongID"]}}</td>
+           <td>{{row["Title"]}}</td>
+           <td>{{row["Artist"]}}</td>
+           <td>{{row["Genre"]}}</td>
+       </tr>
+    <td>
+        <button type="button">
+            <a href="{{url_for('update', songID=row['songID'])}}">Update</a>
+        </button>
+    </td>
+{% endfor %}
+   </tbody>
+</table>
+
+</div>
 {% endblock content %}
+

@@ -1,0 +1,20 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+
+<h1 class="text-lg-center">Update</h1>
+{% block title  %} Update "{{ aSongRecord['title']}}" {% endblock %}
+<div class="container">
+
+    <form action="" method="post">
+        <input type="text" id="title" name="Title" placeholder=" Title" value="{{request.form[Title] or aSongRecord ['Title'] }}">
+        <input type="text" id="artist" name="Artist" placeholder=" Artist" value="{{request.form[Artist] or aSongRecord ['Artist']}}">
+        <input type="text" id="genre" name="Genre" placeholder=" Genre" value="{{request.form[Genre] or aSongRecord ['Genre'] }}">
+
+        <button type="submit" value="Add Songs">Update</button>
+    </form>
+
+
+
+</div>
+{% endblock content %}
