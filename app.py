@@ -1,4 +1,4 @@
-import re
+
 from flask import Flask, flash, render_template, request, url_for, redirect, abort
 import sqlite3 as sql
 
@@ -76,6 +76,20 @@ def update(songID): # passed in the primary key songID from the song Table
         return redirect(url_for('songs'))
 
     return render_template('update.html',title= 'Update Songs' , aSongRecord = songRecord)
+
+
+@app.route('/<int:songID>/delete', methods= ('POST',))
+def delete(songID):
+    conn = musicDB()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM songs where songID = ?",(songID,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('songs'))
+
+
+
+
 
 
 

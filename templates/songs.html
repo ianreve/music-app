@@ -5,8 +5,8 @@
 
 
 <h1 class="text-lg-center">This is songs</h1>
-<table class="table ">
-   <thead >
+<table class="table  ">
+   <thead class="thead-dark">
        <th>SongID</th>
        <th>Title</th>
        <th>Artist</th>
@@ -19,12 +19,20 @@
            <td>{{row["Title"]}}</td>
            <td>{{row["Artist"]}}</td>
            <td>{{row["Genre"]}}</td>
-       </tr>
-    <td>
-        <button type="button">
-            <a href="{{url_for('update', songID=row['songID'])}}">Update</a>
-        </button>
+           <td>
+        
+            <a class="btn btn-outline-primary" href="{{url_for('update', songID=row['songID'])}}">Update</a>
+
+            <form  action="{{url_for('delete', songID=row['songID'])}}" method="POST"> 
+                <input class="btn btn-outline-danger"  type="submit" value="Delete"  onclick=" return confirm('Press confirm to Delete')"> 
+              </form>
+
+          
+       
     </td>
+       </tr>
+ 
+
 {% endfor %}
    </tbody>
 </table>
