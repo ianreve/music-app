@@ -1,20 +1,36 @@
-{% extends 'base.html'  %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
+<h1 class="text-lg-center container-fluid justify-content-center">
+  This is Add Songs
+</h1>
 
-<h1 class="text-lg-center">This is Add Songs</h1>
+<div class="container">
+  <form class="d-flex justify-content-center" action="" method="post">
+    <input
+      type="text"
+      id="title"
+      name="Title"
+      placeholder=" Title"
+      value="{{request.form[Title]}}"
+    />
+    <input
+      type="text"
+      id="artist"
+      name="Artist"
+      placeholder=" Artist"
+      value="{{request.form[Artist]}}"
+    />
+    <input
+      type="text"
+      id="genre"
+      name="Genre"
+      placeholder=" Genre"
+      value="{{request.form[Genre]}}"
+    />
 
-<div class="container ">
-
-    <form class="justify-content-center" action="" method="post">
-        <input type="text" id="title" name="Title" placeholder=" Title" value="{{request.form[Title]}}">
-        <input type="text" id="artist" name="Artist" placeholder=" Artist" value="{{request.form[Artist]}}">
-        <input type="text" id="genre" name="Genre" placeholder=" Genre" value="{{request.form[Genre]}}">
-
-        <button class="btn btn-primary" type="submit" value="Add Songs">Add Song</button>
-    </form>
-
-
-
+    <button class="btn btn-primary" type="submit" value="Add Songs">
+      Add Song
+    </button>
+  </form>
 </div>
 {% endblock content %}
